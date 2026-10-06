@@ -1,64 +1,681 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Dhrumi Technologies</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dhrumi Technologies | Technology. Innovation. Growth.</title>
+
+  <meta name="description"
+        content="Dhrumi Technologies builds modern software, AI solutions and cloud-powered digital experiences for businesses.">
+
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b1020;
-      color: white;
-      text-align: center;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .container {
-      padding: 120px 20px;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: #050816;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(5, 8, 22, 0.75);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #6c63ff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #b9c0d4;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 130px 7% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: #5d4cff;
+      filter: blur(180px);
+      opacity: 0.18;
+      top: 10%;
+      right: -100px;
+    }
+
+    .glow2 {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: #00b7ff;
+      filter: blur(180px);
+      opacity: 0.12;
+      bottom: -100px;
+      left: -100px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid rgba(120,110,255,0.4);
+      border-radius: 50px;
+      color: #a9a2ff;
+      background: rgba(108,99,255,0.08);
+      font-size: 13px;
+      margin-bottom: 25px;
     }
 
     h1 {
-      font-size: 42px;
-      margin-bottom: 15px;
+      font-size: clamp(48px, 7vw, 86px);
+      line-height: 1.05;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
     }
 
-    p {
+    .gradient-text {
+      background: linear-gradient(90deg, #8f87ff, #43c6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: #aeb6cc;
       font-size: 20px;
-      color: #b8c0d9;
+      max-width: 680px;
+      margin-bottom: 35px;
     }
 
-    .tagline {
-      margin-top: 30px;
-      font-size: 17px;
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
-    .button {
-      display: inline-block;
-      margin-top: 35px;
-      padding: 14px 28px;
+    .btn {
+      padding: 14px 25px;
+      border-radius: 9px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .primary {
       background: white;
-      color: #0b1020;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
+      color: #050816;
+    }
+
+    .primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(255,255,255,0.15);
+    }
+
+    .secondary {
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+    }
+
+    .secondary:hover {
+      background: rgba(255,255,255,0.06);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 100px 7%;
+    }
+
+    .section-title {
+      max-width: 700px;
+      margin-bottom: 55px;
+    }
+
+    .section-title span {
+      color: #7d75ff;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      font-size: 45px;
+      margin-top: 10px;
+      line-height: 1.15;
+    }
+
+    .section-title p {
+      color: #9ea7bd;
+      margin-top: 15px;
+    }
+
+    /* SERVICES */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      padding: 30px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 18px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(120,110,255,0.45);
+      background: rgba(255,255,255,0.055);
+    }
+
+    .icon {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: #929bb2;
+      font-size: 14px;
+    }
+
+    /* ABOUT */
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: 45px;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      color: #9ea7bd;
+      margin-bottom: 20px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .stat {
+      padding: 30px;
+      border-radius: 16px;
+      background: linear-gradient(
+        145deg,
+        rgba(108,99,255,0.13),
+        rgba(255,255,255,0.025)
+      );
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .stat h3 {
+      font-size: 32px;
+      margin-bottom: 5px;
+    }
+
+    .stat p {
+      color: #8e97ad;
+      font-size: 14px;
+    }
+
+    /* WHY US */
+
+    .why {
+      background: #070b1d;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      padding: 30px;
+      border-left: 2px solid #6c63ff;
+      background: rgba(255,255,255,0.025);
+    }
+
+    .feature h3 {
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: #929bb2;
+      font-size: 14px;
+    }
+
+    /* CTA */
+
+    .cta {
+      text-align: center;
+      padding: 110px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta h2 {
+      font-size: clamp(38px, 5vw, 60px);
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      color: #9ea7bd;
+      margin-bottom: 30px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 35px 7%;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      justify-content: space-between;
+      color: #737c92;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      section {
+        padding: 75px 6%;
+      }
+
+      .hero {
+        padding: 120px 6% 70px;
+      }
+
+      h1 {
+        font-size: 50px;
+        letter-spacing: -2px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title h2,
+      .about-text h2 {
+        font-size: 36px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 10px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
-    <h1>DHRUMI TECHNOLOGIES</h1>
+  <!-- NAVIGATION -->
 
-    <p>Building Technology. Empowering Businesses.</p>
-
-    <div class="tagline">
-      Software Development • AI Solutions • Cloud • Training
+  <nav>
+    <div class="logo">
+      DHRUMI<span>TECHNOLOGIES</span>
     </div>
 
-    <a class="button" href="mailto:contact@dhrumitechnologies.in">
-      Contact Us
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="glow"></div>
+    <div class="glow2"></div>
+
+    <div class="hero-content">
+
+      <div class="badge">
+        🚀 Technology • Innovation • Growth
+      </div>
+
+      <h1>
+        Building the
+        <span class="gradient-text">
+          Future of Technology.
+        </span>
+      </h1>
+
+      <p>
+        Dhrumi Technologies helps businesses turn ideas into
+        powerful digital products through software engineering,
+        artificial intelligence and cloud technology.
+      </p>
+
+      <div class="buttons">
+        <a href="#contact" class="btn primary">
+          Start a Conversation →
+        </a>
+
+        <a href="#services" class="btn secondary">
+          Explore Services
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES -->
+
+  <section id="services">
+
+    <div class="section-title">
+
+      <span>What we do</span>
+
+      <h2>
+        Technology that moves
+        businesses forward.
+      </h2>
+
+      <p>
+        From product development to intelligent automation,
+        we build solutions designed for real-world impact.
+      </p>
+
+    </div>
+
+
+    <div class="services">
+
+      <div class="card">
+        <div class="icon">💻</div>
+        <h3>Software Development</h3>
+        <p>
+          Scalable web and enterprise applications built
+          with modern technologies and clean architecture.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🤖</div>
+        <h3>AI Solutions</h3>
+        <p>
+          Intelligent applications, automation and AI-powered
+          experiences that improve productivity.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">☁️</div>
+        <h3>Cloud & DevOps</h3>
+        <p>
+          Cloud-native solutions, deployment pipelines and
+          infrastructure designed for reliability and scale.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎓</div>
+        <h3>Technology Training</h3>
+        <p>
+          Practical technology programs helping students and
+          professionals build industry-ready skills.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="about">
+
+      <div class="about-text">
+
+        <span style="color:#7d75ff;font-size:14px;font-weight:bold;">
+          ABOUT DHRUMI TECHNOLOGIES
+        </span>
+
+        <h2>
+          Ideas into
+          <span class="gradient-text">impact.</span>
+        </h2>
+
+        <p>
+          We believe technology should solve meaningful problems,
+          simplify complex processes and create opportunities.
+        </p>
+
+        <p>
+          Dhrumi Technologies is focused on building modern,
+          scalable and intelligent digital solutions for startups,
+          businesses and the next generation of technology talent.
+        </p>
+
+      </div>
+
+
+      <div class="stats">
+
+        <div class="stat">
+          <h3>01</h3>
+          <p>Innovation First</p>
+        </div>
+
+        <div class="stat">
+          <h3>02</h3>
+          <p>Customer Focused</p>
+        </div>
+
+        <div class="stat">
+          <h3>03</h3>
+          <p>Built to Scale</p>
+        </div>
+
+        <div class="stat">
+          <h3>04</h3>
+          <p>Future Ready</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WHY US -->
+
+  <section id="why" class="why">
+
+    <div class="section-title">
+
+      <span>Why Dhrumi</span>
+
+      <h2>
+        More than technology.
+        We build possibilities.
+      </h2>
+
+    </div>
+
+
+    <div class="features">
+
+      <div class="feature">
+        <h3>Modern Engineering</h3>
+        <p>
+          We use modern development practices and architectures
+          to create maintainable and scalable products.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3>Business Mindset</h3>
+        <p>
+          Technology is only valuable when it creates measurable
+          value for the business and its customers.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3>Long-Term Vision</h3>
+        <p>
+          We design solutions with future growth, security and
+          scalability in mind.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section id="contact" class="cta">
+
+    <div class="glow"></div>
+
+    <h2>
+      Let's build something
+      <span class="gradient-text">great.</span>
+    </h2>
+
+    <p>
+      Have an idea, project or technology challenge?
+      Let's talk.
+    </p>
+
+    <a
+      href="mailto:contact@dhrumitechnologies.in"
+      class="btn primary"
+    >
+      contact@dhrumitechnologies.in
     </a>
-  </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div>
+      © 2026 Dhrumi Technologies. All rights reserved.
+    </div>
+
+    <div>
+      Technology • Innovation • Growth
+    </div>
+
+  </footer>
 
 </body>
 </html>
